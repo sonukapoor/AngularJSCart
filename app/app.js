@@ -1,14 +1,13 @@
-'use strict';
-
-// Declare app level module which depends on views, and components
-var app = angular.module('CartApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]);
-
-app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+(function ()
+{
+  'use strict';
+  var app = angular.module('cartApp', ['ui.router']);
+  app.config(function ($stateProvider)
+  {
+    $stateProvider
+        .state('profile', {
+          url: '/user/:id',
+          templateUrl: 'components/profile/profile.html'
+        });
+  });
+}());
