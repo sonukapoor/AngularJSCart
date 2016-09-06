@@ -1,7 +1,10 @@
 (function ()
 {
   'use strict';
-  var app = angular.module('cartApp', ['ui.router']);
+  var app = angular.module('cartApp', [
+    'ui.router',
+    'api.products'
+  ]);
   app.config(function ($stateProvider)
   {
     $stateProvider
