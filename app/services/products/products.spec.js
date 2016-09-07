@@ -16,8 +16,6 @@ describe('Products Factory', function ()
         }
     ];
     beforeEach(angular.mock.module('api.products'));
-
-    // Before each test set our injected Products factory (_Products_) to our local Products variable
     beforeEach(inject(function (_Products_, _$q_, _$httpBackend_)
     {
         Products = _Products_;
@@ -25,7 +23,7 @@ describe('Products Factory', function ()
         $httpBackend = _$httpBackend_;
     }));
 
-    it('should factory exist', function ()
+    it('should be defined', function ()
     {
         expect(Products).toBeDefined();
     });
@@ -43,7 +41,7 @@ describe('Products Factory', function ()
             spyOn(Products, "all").and.callThrough();
         });
 
-        it('should exist', function ()
+        it('should be defined', function ()
         {
             expect(Products.all).toBeDefined();
         });
@@ -67,7 +65,7 @@ describe('Products Factory', function ()
         });
     });
 
-    describe('.findByName', function ()
+    describe('.findByName()', function ()
     {
         var API = "http://localhost:8080/api/products/search";
         var result;
@@ -77,7 +75,7 @@ describe('Products Factory', function ()
             spyOn(Products, "findByName").and.callThrough();
         });
 
-        it('should exist', function ()
+        it('should be defined', function ()
         {
             expect(Products.findByName).toBeDefined();
         });

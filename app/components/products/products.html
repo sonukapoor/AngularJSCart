@@ -1,15 +1,9 @@
-
 <div class="container">
-  <div class="row">
-    <div class="col-md-4" ng-repeat="product in pc.products">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title text-center">{{product.name}}</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <ul class="list-group" ng-repeat="product in pc.products">
+                <li class="list-group-item">{{ product.name }}</li>
+            </ul>
         </div>
-        <div class="panel-body">
-          <div><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>{{product.price}}</div>
-        </div>
-      </div>
     </div>
-  </div>
 </div>

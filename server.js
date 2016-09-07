@@ -33,10 +33,31 @@ var productsList = [
     }
 ];
 
+var categoriesList = [
+    {
+        name: 'T-Shirt',
+        id: 1
+    },
+    {
+        name: 'Pants',
+        id: 2
+    },
+    {
+        name: 'Leggings',
+        id: 3
+    }
+];
+
 app.get('/api/products', function (req, res)
 {
-    console.log("retrieving all products"); 
+    console.log("retrieving all products");
     res.send(productsList);
+});
+
+app.get('/api/categories', function (req, res)
+{
+    console.log("retrieving all categories");
+    res.send(categoriesList);
 });
 
 app.get('/api/products/search', function (req, res)
@@ -46,7 +67,7 @@ app.get('/api/products/search', function (req, res)
     {
         return p.name == req.query.name;
     });
-    
+
     res.send(result);
 });
 
