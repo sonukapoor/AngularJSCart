@@ -1,6 +1,6 @@
 describe('ProductsController', function ()
 {
-  var $controller, ProductsController, ProductsFactory;
+  var $controller, $q, $rootScope, ProductsController, ProductsFactory;
 
   var productsList = [
     {
@@ -20,14 +20,18 @@ describe('ProductsController', function ()
   beforeEach(angular.mock.module('components.products'));
   beforeEach(angular.mock.module('api.products'));
 
-  beforeEach(inject(function (_$controller_, _Products_)
+  beforeEach(inject(function (_$controller_, _$q_, _$rootScope_, _Products_)
   {
     $controller = _$controller_;
     ProductsFactory = _Products_;
+    $q = _$q_;
+    $rootScope = _$rootScope_.$new();
 
     spyOn(ProductsFactory, 'all').and.callFake(function ()
     {
-      return productsList;
+      var deferred = $q.defer();
+      deferred.resolve(productsList);
+      return deferred.promise;
     });
 
     ProductsController = $controller('ProductsController', { Products: ProductsFactory });
@@ -41,6 +45,7 @@ describe('ProductsController', function ()
   it('should initialize with a call to Products.all()', function ()
   {
     expect(ProductsFactory.all).toHaveBeenCalled();
+    $rootScope.$apply();
     expect(ProductsController.products).toEqual(productsList);
-  }); 
+  });
 });

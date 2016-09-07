@@ -50,7 +50,6 @@ describe('Products Factory', function ()
 
         it('should return all products', function ()
         {
-            //expect(Products.all()).toEqual(productsList);
             $httpBackend.whenGET(API).respond(200, $q.when(productsList));
 
             expect(Products.all).not.toHaveBeenCalled();
