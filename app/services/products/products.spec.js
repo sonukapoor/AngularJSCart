@@ -78,6 +78,11 @@ describe('Products Factory', function ()
             spyOn(Products, "findByName").and.callThrough();
         });
 
+        it('should exist', function ()
+        {
+            expect(Products.findByName).toBeDefined();
+        });
+
         it('should return an product when filtered with a valid name', function ()
         {
             var search = "Hoody";

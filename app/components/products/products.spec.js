@@ -1,17 +1,46 @@
+describe('ProductsController', function ()
+{
+  var $controller, ProductsController, ProductsFactory;
 
-/*'use strict';
+  var productsList = [
+    {
+      name: '2001 T-Shirt',
+      price: 19.99
+    },
+    {
+      name: 'Hoody',
+      price: 49.99
+    },
+    {
+      name: 'Sonu Hoody',
+      price: 69.99
+    }
+  ];
 
-describe('myApp.view1 module', function() {
+  beforeEach(angular.mock.module('components.products'));
+  beforeEach(angular.mock.module('api.products'));
 
-  beforeEach(angular.mock.module('myApp.view1'));
+  beforeEach(inject(function (_$controller_, _Products_)
+  {
+    $controller = _$controller_;
+    ProductsFactory = _Products_;
 
-  describe('view1 controller', function(){
+    spyOn(ProductsFactory, 'all').and.callFake(function ()
+    {
+      return productsList;
+    });
 
-    it('should controller exist', inject(function($controller) {
-      //spec body
-      var view1Ctrl = $controller('View1Ctrl');
-      expect(view1Ctrl).toBeDefined();
-    }));
+    ProductsController = $controller('ProductsController', { Products: ProductsFactory });
+  }));
 
+  it('should be defined', function ()
+  {
+    expect(ProductsController).toBeDefined();
   });
-});*/
+
+  it('should initialize with a call to Products.all()', function ()
+  {
+    expect(ProductsFactory.all).toHaveBeenCalled();
+    expect(ProductsController.products).toEqual(productsList);
+  }); 
+});

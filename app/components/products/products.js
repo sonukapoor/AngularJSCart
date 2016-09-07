@@ -1,5 +1,8 @@
 'use strict';
 
-angular.module('CartApp.controllers', []).controller('ProductListController', [function() {
-
-}]);
+var app = angular.module('components.products', []);
+app.controller('ProductsController', function (Products)
+{
+    var vm = this;
+    vm.products = Products.all();
+});
