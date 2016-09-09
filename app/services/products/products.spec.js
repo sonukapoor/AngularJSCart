@@ -3,16 +3,19 @@ describe('Products Factory', function ()
     var Products;
     var productsList = [
         {
-            name: '2001 T-Shirt2',
-            price: 19.99
+            name: '2001 T-Shirt',
+            price: 19.99,
+            id: 1
         },
         {
             name: 'Hoody',
-            price: 49.99
+            price: 49.99,
+            id: 2
         },
         {
             name: 'Sonu Hoody',
-            price: 69.99
+            price: 69.99,
+            id: 3
         }
     ];
     beforeEach(angular.mock.module('api.products'));
@@ -102,4 +105,39 @@ describe('Products Factory', function ()
             expect(result.price).toEqual(49.99);
         });
     });
+
+    describe('.findById()', function ()
+    {
+        var API = "http://localhost:8080/api/products/";
+        var result;
+        beforeEach(function ()
+        {
+            result = {};
+            spyOn(Products, "findById").and.callThrough();        
+        });
+        
+        it('should be defined', function ()
+        {
+            expect(Products.findById).toBeDefined();
+        });
+
+        it('should return a product when called by Id', function ()
+        {
+            API = API + "1";
+            $httpBackend.whenGET(API).respond(200, $q.when(productsList[0]));
+            expect(Products.findById).not.toHaveBeenCalled();
+
+            Products.findById(1)
+                .then(function (res)
+                {
+                    result = res;
+                });
+            
+            $httpBackend.flush();
+            expect(Products.findById).toHaveBeenCalled();
+            expect(result.id).toEqual(1);
+            expect(result.name).toEqual("2001 T-Shirt");
+            expect(result.price).toEqual(19.99);
+        });
+    })
 }); 

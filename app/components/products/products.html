@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <ul class="list-group" ng-repeat="product in pc.products">
-                <li class="list-group-item">{{ product.name }}</li>
+            <ul class="list-group" >
+                <li class="list-group-item" ng-repeat="product in pc.products"><a ui-sref='product({id: product.id})'>{{ product.name }}</a></li>
             </ul>
         </div>
     </div>

@@ -5,15 +5,18 @@ describe('ProductsController', function ()
   var productsList = [
     {
       name: '2001 T-Shirt',
-      price: 19.99
+      price: 19.99,
+      id: 1
     },
     {
       name: 'Hoody',
-      price: 49.99
+      price: 49.99,
+      id: 2
     },
     {
       name: 'Sonu Hoody',
-      price: 69.99
+      price: 69.99,
+      id: 3
     }
   ];
 

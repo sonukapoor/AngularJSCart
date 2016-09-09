@@ -21,15 +21,18 @@ app.use(express.static(__dirname + '/app'));
 var productsList = [
     {
         name: '2001 T-Shirt',
-        price: 19.99
+        price: 19.99,
+        id: 1
     },
     {
         name: 'Hoody',
-        price: 49.99
+        price: 49.99,
+        id: 2
     },
     {
         name: 'Sonu Hoody',
-        price: 69.99
+        price: 69.99,
+        id: 3
     }
 ];
 
@@ -52,6 +55,16 @@ app.get('/api/products', function (req, res)
 {
     console.log("retrieving all products");
     res.send(productsList);
+});
+
+app.get('/api/products/:id', function (req, res)
+{
+    var result = productsList.filter(function (p)
+    {
+        return p.id == req.params.id;
+    });
+
+    res.send(result[0]);
 });
 
 app.get('/api/categories', function (req, res)

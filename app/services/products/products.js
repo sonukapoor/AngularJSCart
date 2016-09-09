@@ -33,7 +33,20 @@
                 {
                     return res.data;
                 });
-        }    
+        };
+
+        Products.findById = function (id)
+        {
+            return $http.get(API + "/" + id)
+                .then(function (res)
+                {
+                    return res.data;
+                })
+                .catch(function (res)
+                {
+                    return res.data;
+                });
+        }
 
         return Products;
     });
