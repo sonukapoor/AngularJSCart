@@ -1,8 +1,17 @@
 <div class="container">
     <div class="row">
+        <div class="col">
+            <h1>{{ product.name }}</h1>
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-4">
-            {{ product.name }}
-            {{ product.price | currency  }}
+            <img src="/assets/img/image_coming_soon.png" width=200 height=200 />
+        </div>
+        <div class="col-md-2">
+            Product: {{ product.name }}
+            Price: {{ product.price | currency  }}
         </div>
     </div>
 </div>

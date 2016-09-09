@@ -7,7 +7,8 @@
     'api.products',
     'components.categories',
     'components.products',
-    'components.product'
+    'components.product',
+    'components.directives'
   ]);
   app.config(function ($stateProvider)
   {
@@ -18,7 +19,7 @@
         controller: 'ProductsController as pc'
       })
       .state('product', {
-        url: '/product/:id',
+        url: '/products/:id',
         templateUrl: 'components/products/product.html',
         controller: 'ProductController as pc',
         resolve:
