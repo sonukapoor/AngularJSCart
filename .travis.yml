@@ -17,4 +17,5 @@ before_script:
   - npm install
 
 script:
-  - node server.js
+  - npm run test-single-run
+  - (npm start > /dev/null &) && (npm run protractor)
