@@ -1,5 +1,7 @@
-<div class="list-group">
-    <a class="list-group-item" ng-repeat="category in categories.categories">
+<ul class="nav nav-list tree">
+    <li ng-repeat="category in categories.categories">
+    <a ui-sref='category({categoryId: category.id})'>
         {{ category.name }}
     </a>
-</div>
+    </li>
+</ul>

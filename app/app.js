@@ -10,8 +10,9 @@
     'components.product',
     'components.directives'
   ]);
-  app.config(function ($stateProvider)
+  app.config(function ($stateProvider, $urlRouterProvider)
   {
+    $urlRouterProvider.when('', '/');
     $stateProvider
       .state('products', {
         url: '/products',
@@ -33,6 +34,18 @@
       .state('home', {
         url: "/",
         templateUrl: 'components/home/index.html'
+      })
+      .state('category', {
+        url: "/category/:id",
+        templateUrl: 'components/products/products.html', 
+        controller: 'ProductsController as pc',
+        resolve:
+        {
+          resolvedProduct: function (Products, $stateParams)
+          {
+            return Products.findById($stateParams.id);
+          }
+        }
       })
       .state("otherwise", {
         url: "*path",
