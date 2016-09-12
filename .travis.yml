@@ -15,6 +15,7 @@ install:
 
 before_script:
   - npm install
+  - node server.js
 
 script:
   - npm run test-single-run
