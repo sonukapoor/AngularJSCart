@@ -1,4 +1,4 @@
-https://travis-ci.org/sonukapoor/AngularJSCart.svg?branch=master
+[![Build Status](https://travis-ci.org/sonukapoor/AngularJSCart.svg?branch=master)](https://travis-ci.org/sonukapoor/AngularJSCart)
 
 # angular-JSCart - A simple application to show the power of angular
 
