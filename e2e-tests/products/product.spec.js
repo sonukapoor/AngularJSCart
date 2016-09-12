@@ -30,13 +30,13 @@ describe('cartApp - Products', function ()
         it('should render product.html when clicking the first link in the products repeater', function ()
         {
             element.all(by.repeater('product in pc.products')).get(0).element(by.className("ng-binding")).click();
-            expect(browser.getLocationAbsUrl()).toMatch("/product/1");
+            expect(browser.getLocationAbsUrl()).toMatch("/products/1");
         });
 
-        it('should render product.html when clicking the first link in the products repeater', function ()
+        it('should render product.html when browsing to /#/products/1', function ()
         {
             browser.get('/#/products/1');
-            expect(browser.getLocationAbsUrl()).toMatch("/product/1");
+            expect(browser.getLocationAbsUrl()).toMatch("/products/1");
         });
     });
 });
