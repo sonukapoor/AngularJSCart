@@ -34,7 +34,11 @@ describe('Categories Controller', function ()
             return deferred.promise;
         })
 
-        CategoriesController = $controller('CategoriesController', { Categories: CategoriesFactory });
+        CategoriesController = $controller('CategoriesController',
+            {
+                $scope: $rootScope,
+                Categories: CategoriesFactory
+            });
     }));
 
     it('should be defined', function ()
@@ -46,6 +50,6 @@ describe('Categories Controller', function ()
     {
         expect(CategoriesFactory.all).toHaveBeenCalled();
         $rootScope.$apply();
-        expect(CategoriesController.categories).toEqual(categoriesList);
+        expect($rootScope.categories).toEqual(categoriesList);
     });
 }); 
