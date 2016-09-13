@@ -1,9 +1,11 @@
 {
   "name": "angular-seed",
   "private": true,
-  "version": "0.0.0",
   "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonukapoor/AngularJSCart.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "angular": "1.5.8",
@@ -25,10 +27,11 @@
     "karma-spec-reporter": "0.0.26",
     "morgan": "^1.7.0",
     "path": "^0.12.7",
-    "protractor": "^3.2.2"
+    "protractor": "^3.2.2",
+    "semantic-release": "^4.3.5"
   },
   "scripts": {
-    "commit": "git-cz", 
+    "commit": "git-cz",
     "postinstall": "bower install",
     "prestart": "npm install",
     "start": "node server.js",
@@ -39,7 +42,8 @@
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor e2e-tests/protractor.conf.js",
-    "update-index-async": "node -e \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/bower_components/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\""
+    "update-index-async": "node -e \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/bower_components/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\"",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
     "angular-ui-router": "^0.3.1"
